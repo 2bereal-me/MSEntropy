@@ -112,7 +112,7 @@ entropy_similarity <- calculate_entropy_similarity(peaks_a, peaks_b, ms2_toleran
     // The parameters for clean_spectrum function
     int normalize_intensity = 1;
     float ms2_tolerance_in_da = 0.02, ms2_tolerance_in_ppm = -1;
-    float min_mz= -1, max_mz = -1;
+    float min_mz= 0, max_mz = -1;
     float noise_threshold = 0.01;
     int max_peak_num = -1;
 
@@ -136,7 +136,7 @@ entropy_similarity <- calculate_entropy_similarity(peaks_a, peaks_b, ms2_toleran
     // The parameters for calculate_entropy_similarity function.
     int clean_spectra = 1;
     float ms2_tolerance_in_da = 0.02, ms2_tolerance_in_ppm = -1;
-    float min_mz= -1, max_mz = -1;
+    float min_mz= 0, max_mz = -1;
     float noise_threshold = 0.01;
     int max_peak_num = -1;
 

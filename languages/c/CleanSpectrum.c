@@ -180,9 +180,6 @@ int clean_spectrum(float_spec* spectrum, int spectrum_length,
 
     if (__DEBUG__CLEAN_SPECTRUM__) print_spectrum("Input:\n", spectrum_2d, spectrum_length);
     // 1. Remove the peaks by m/z.
-    if (min_mz < 0) {
-        min_mz = 0;
-    }
     float_spec* spectrum_ptr = spectrum;
     float_spec* spectrum_end = spectrum + spectrum_length * 2;
     for (; spectrum_ptr < spectrum_end; spectrum_ptr += 2) {

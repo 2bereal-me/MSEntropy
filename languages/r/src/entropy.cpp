@@ -56,7 +56,7 @@ double r_calculate_spectral_entropy(const Rcpp::NumericMatrix peaks) {
 //'
 //' This function will clean the peaks by the following steps:
 //' 1. Remove empty peaks (mz <= 0 or intensity <= 0).
-//' 2. Remove peaks with mz >= max_mz or mz < min_mz.
+//' 2. Remove peaks with mz >= max_mz or mz <= min_mz.
 //' 3. Centroid the spectrum by merging peaks within min_ms2_difference_in_da or min_ms2_difference_in_ppm.
 //' 4. Remove peaks with intensity < noise_threshold * max_intensity.
 //' 5. Keep only the top max_peak_num peaks.
@@ -65,7 +65,7 @@ double r_calculate_spectral_entropy(const Rcpp::NumericMatrix peaks) {
 //' Note: The only one of min_ms2_difference_in_da and min_ms2_difference_in_ppm should be positive.
 //'
 //' @param peaks A matrix of spectral peaks, with two columns: mz and intensity
-//' @param min_mz The minimum mz value to keep, set to -1 to disable
+//' @param min_mz The minimum mz value to keep.
 //' @param max_mz The maximum mz value to keep, set to -1 to disable
 //' @param noise_threshold The noise threshold, set to -1 to disable, all peaks have intensity < noise_threshold * max_intensity will be removed
 //' @param min_ms2_difference_in_da The minimum mz difference in Da to merge peaks, set to -1 to disable, any two peaks with mz difference < min_ms2_difference_in_da will be merged
@@ -114,7 +114,7 @@ Rcpp::NumericMatrix r_clean_spectrum(const Rcpp::NumericMatrix peaks,
 //' @param ms2_tolerance_in_da The MS2 tolerance in Da, set to -1 to disable
 //' @param ms2_tolerance_in_ppm The MS2 tolerance in ppm, set to -1 to disable
 //' @param clean_spectra Whether to clean the spectra before calculating the entropy similarity, see \code{\link{clean_spectrum}}
-//' @param min_mz The minimum mz value to keep, set to -1 to disable
+//' @param min_mz The minimum mz value to keep.
 //' @param max_mz The maximum mz value to keep, set to -1 to disable
 //' @param noise_threshold The noise threshold, set to -1 to disable, all peaks have intensity < noise_threshold * max_intensity will be removed
 //' @param max_peak_num The maximum number of peaks to keep, set to -1 to disable
@@ -167,7 +167,7 @@ double r_calculate_unweighted_entropy_similarity(const Rcpp::NumericMatrix peaks
 //' @param ms2_tolerance_in_da The MS2 tolerance in Da, set to -1 to disable
 //' @param ms2_tolerance_in_ppm The MS2 tolerance in ppm, set to -1 to disable
 //' @param clean_spectra Whether to clean the spectra before calculating the entropy similarity, see \code{\link{clean_spectrum}}
-//' @param min_mz The minimum mz value to keep, set to -1 to disable
+//' @param min_mz The minimum mz value to keep.
 //' @param max_mz The maximum mz value to keep, set to -1 to disable
 //' @param noise_threshold The noise threshold, set to -1 to disable, all peaks have intensity < noise_threshold * max_intensity will be removed
 //' @param max_peak_num The maximum number of peaks to keep, set to -1 to disable

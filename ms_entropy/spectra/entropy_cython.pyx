@@ -38,7 +38,7 @@ cdef extern from "SpectralEntropy.h":
 
 cpdef np.ndarray[float32, ndim=2] cy_clean_spectrum(
     peaks,
-    min_mz = -1,
+    min_mz = 0,
     max_mz = -1,
     float noise_threshold = 0.01,
     float min_ms2_difference_in_da = 0.05,
@@ -50,7 +50,7 @@ cpdef np.ndarray[float32, ndim=2] cy_clean_spectrum(
     Clean, centroid, and normalize a spectrum with the following steps:
 
         1. Remove empty peaks (m/z <= 0 or intensity <= 0).
-        2. Remove peaks with m/z >= max_mz or m/z < min_mz.
+        2. Remove peaks with m/z >= max_mz or m/z <= min_mz.
         3. Centroid the spectrum by merging peaks within min_ms2_difference_in_da.
         4. Remove peaks with intensity < noise_threshold * max_intensity.
         5. Keep only the top max_peak_num peaks.
@@ -63,7 +63,7 @@ cpdef np.ndarray[float32, ndim=2] cy_clean_spectrum(
         A 2D array of shape (n_peaks, 2) where the first column is m/z and the second column is intensity.
 
     min_mz : float, optional
-        The minimum m/z to keep. Defaults to None, which will skip removing peaks with m/z < min_mz.
+        The minimum m/z to keep. Defaults to None, which will skip removing peaks with m/z <= min_mz.
 
     max_mz : float, optional
         The maximum m/z to keep. Defaults to None, which will skip removing peaks with m/z >= max_mz.
@@ -98,7 +98,7 @@ cpdef np.ndarray[float32, ndim=2] cy_clean_spectrum(
         raise ValueError("Either min_ms2_difference_in_da or min_ms2_difference_in_ppm must be positive.")
 
     cdef np.ndarray[float32, ndim=2] clean_peaks = np.array(peaks, dtype=np.float32, copy=True, order="C")
-    min_mz = -1 if min_mz is None else min_mz
+    min_mz = 0 if min_mz is None else min_mz
     max_mz = -1 if max_mz is None else max_mz
     max_peak_num = -1 if max_peak_num is None else max_peak_num
 
@@ -125,7 +125,7 @@ cpdef float cy_calculate_entropy_similarity(
     float ms2_tolerance_in_da = 0.02,
     float ms2_tolerance_in_ppm = -1,
     bool clean_spectra = True,
-    float min_mz = -1,
+    float min_mz = 0,
     float max_mz = -1,
     float noise_threshold = 0.01,
     int max_peak_num = -1
@@ -202,7 +202,7 @@ cpdef float cy_calculate_unweighted_entropy_similarity(
     float ms2_tolerance_in_da = 0.02,
     float ms2_tolerance_in_ppm = -1,
     bool clean_spectra = True,
-    float min_mz = -1,
+    float min_mz = 0,
     float max_mz = -1,
     float noise_threshold = 0.01,
     int max_peak_num = -1

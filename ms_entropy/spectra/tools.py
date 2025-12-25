@@ -17,7 +17,7 @@ def clean_spectrum(
     Clean, centroid, and normalize a spectrum with the following steps:
 
         1. Remove empty peaks (m/z <= 0 or intensity <= 0).
-        2. Remove peaks with m/z >= max_mz or m/z < min_mz.
+        2. Remove peaks with m/z >= max_mz or m/z <= min_mz.
         3. Centroid the spectrum by merging peaks within min_ms2_difference_in_da.
         4. Remove peaks with intensity < noise_threshold * max_intensity.
         5. Keep only the top max_peak_num peaks.
@@ -30,7 +30,7 @@ def clean_spectrum(
         A 2D array of shape (n_peaks, 2) where the first column is m/z and the second column is intensity.
 
     min_mz : float, optional
-        The minimum m/z to keep. Defaults to None, which will skip removing peaks with m/z < min_mz.
+        The minimum m/z to keep. Defaults to None, which will skip removing peaks with m/z <= min_mz.
 
     max_mz : float, optional
         The maximum m/z to keep. Defaults to None, which will skip removing peaks with m/z >= max_mz.
@@ -71,7 +71,7 @@ def clean_spectrum(
     # Step 1. Remove empty peaks (m/z <= 0 or intensity <= 0).
     peaks = peaks[np.bitwise_and(peaks[:, 0] > 0, peaks[:, 1] > 0)]
 
-    # Step 2. Remove peaks with m/z >= max_mz or m/z < min_mz.
+    # Step 2. Remove peaks with m/z >= max_mz or m/z <= min_mz.
     if min_mz is not None and min_mz > 0:
         peaks = peaks[peaks[:, 0] >= min_mz]
 

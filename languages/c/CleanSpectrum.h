@@ -35,9 +35,9 @@ typedef float float_spec;
 
  * @param peaks The peaks to be cleaned. A 2D array. peaks[x][0] is the m/z, peaks[x][1] is the intensity.
  * @param peaks_length The length of the peaks.
- * @param min_mz The minimum m/z of the peaks. If set to -1, this function will not remove peaks with m/z < min_mz.
- * @param max_mz The maximum m/z of the peaks. If set to -1, this function will not remove peaks with m/z >= max_mz.
- * @param noise_threshold The noise threshold of the peaks. If set to -1, this function will not remove peaks with intensity < noise_threshold * max_intensity.
+ * @param min_mz The minimum m/z of the peaks.
+ * @param max_mz The maximum m/z of the peaks. If set to 0 or negative, this function will not remove peaks by max_mz.
+ * @param noise_threshold The noise threshold of the peaks. If set to 0 or negative, this function will not remove peaks with intensity < noise_threshold * max_intensity.
  * @param min_ms2_difference_in_da The minimum difference in m/z to merge peaks. If set to -1, this function will not centroid the peaks.
  * @param min_ms2_difference_in_ppm The minimum difference in ppm to merge peaks. If set to -1, this function will not centroid the peaks.
  * @param max_peak_num The maximum number of peaks to keep. If set to -1, this function will not remove peaks.

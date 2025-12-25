@@ -23,8 +23,7 @@
 #' @param clean_spectra Whether to clean the spectra before calculating the
 #'     entropy similarity, see [clean_spectrum()].
 #' 
-#' @param min_mz The minimum mz value to keep, set to -1 to disable. Defaults to
-#'     `min_mz = 0`.
+#' @param min_mz The minimum mz value to keep. Defaults to `min_mz = 0`.
 #' 
 #' @param max_mz The maximum mz value to keep, set to -1 to disable. Defaults to
 #'     `max_mz = 1000`.
