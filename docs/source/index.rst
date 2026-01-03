@@ -50,3 +50,18 @@ This package contains the following modules:
    entropy_search_examples
    entropy_search_api
 
+.. toctree::
+   :maxdepth: 1
+   :caption: ⚡ Dynamic Entropy Search ⚡
+
+   dynamic_quickstart
+   dynamic_basic_usage
+   dynamic_useful_functions
+   dynamic_api
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 🌐 Repository Search 🌐
+
+   repository_search_basic_usage
+   repository_api

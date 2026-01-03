@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup, Extension
-from distutils.util import convert_path
+from setuptools._distutils.util import convert_path
 from Cython.Build import cythonize
 import numpy as np
 import os
