@@ -13,6 +13,7 @@
 #ifdef SPEC_TYPE
 #else
 typedef float float_spec;
+typedef double double_spec;
 #endif
 // static_assert(sizeof(float_spec) == 4);
 

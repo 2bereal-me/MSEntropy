@@ -143,8 +143,8 @@ int inline centroid_spectrum(float_spec (*spectrum_2d)[2], int spectrum_length, 
             if (__DEBUG__CLEAN_SPECTRUM__) printf("idx_right: %d\n", idx_right);
 
             // Merge the peaks in the board
-            float_spec intensity_sum = 0;
-            float_spec intensity_weighted_sum = 0;
+            double_spec intensity_sum = 0;
+            double_spec intensity_weighted_sum = 0;
             for (int i = idx_left + 1; i < idx_right; i++) {
                 if (__DEBUG__CLEAN_SPECTRUM__) printf("i: %d, mz: %f, intensity: %f\n", i, spectrum_2d[i][0], spectrum_2d[i][1]);
                 intensity_sum += spectrum_2d[i][1];
